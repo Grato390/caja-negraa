@@ -1,0 +1,27 @@
+@startuml
+\
+
+title Diagrama de Casos de Uso del Sistema OnlineSalesSystem
+
+actor Usuario
+actor Administrador
+
+rectangle "OnlineSalesSystem" {
+  Usuario --> (Registrar Usuario)
+  Usuario --> (Crear Pedido)
+  Usuario --> (Pagar Pedido)
+  Usuario --> (Cancelar Pedido)
+  Usuario --> (Consultar Estado de Pedido)
+
+  Administrador --> (Agregar Producto)
+  Administrador --> (Enviar Pedido)
+  Administrador --> (Entregar Pedido)
+}
+
+(Registrar Usuario) -down-> (Crear Pedido) : incluye
+(Crear Pedido) -down-> (Pagar Pedido) : incluye
+(Pagar Pedido) -down-> (Enviar Pedido) : incluye
+(Enviar Pedido) -down-> (Entregar Pedido) : incluye
+(Crear Pedido) -down-> (Cancelar Pedido) : incluye
+(Consultar Estado de Pedido) -down-> (Consultar Estado de Pedido)
+@enduml
